@@ -1,3 +1,4 @@
+#%%
 from efficient_sam.build_efficient_sam import build_efficient_sam_vitt, build_efficient_sam_vits
 # from squeeze_sam.build_squeeze_sam import build_squeeze_sam
 
@@ -6,7 +7,7 @@ from torchvision import transforms
 import torch
 import numpy as np
 import zipfile
-
+import matplotlib.pyplot as plt
 
 
 models = {}
@@ -47,3 +48,21 @@ for model_name, model in models.items():
     mask = torch.ge(predicted_logits[0, 0, 0, :, :], 0).cpu().detach().numpy()
     masked_image_np = sample_image_np.copy().astype(np.uint8) * mask[:,:,None]
     Image.fromarray(masked_image_np).save(f"figs/examples/dogs_{model_name}_mask.png")
+#%%
+import matplotlib
+matplotlib.use('TkAgg')
+
+thickness = 3
+color = [255, 0, 0]
+p1,p2 = [580, 350], [650, 350]
+
+p1x, p1y = p1
+p2x, p2y = p2
+masked_image_np = sample_image_np.copy().astype(np.uint8)
+masked_image_np[p1y-thickness:p1y+thickness, p1x-thickness:p1x+thickness] = color
+masked_image_np[p2y-thickness:p2y+thickness, p2x-thickness:p2x+thickness] = color
+
+plt.imshow(masked_image_np)
+
+plt.show()
+# %%

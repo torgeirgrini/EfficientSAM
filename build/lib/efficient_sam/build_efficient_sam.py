@@ -10,7 +10,7 @@ def build_efficient_sam_vitt():
     return build_efficient_sam(
         encoder_patch_embed_dim=192,
         encoder_num_heads=3,
-        checkpoint="/home/torgeir/Documents/isi/EfficientSAM/weights/efficient_sam_vitt.pt",
+        checkpoint="weights/efficient_sam_vitt.pt",
     ).eval()
 
 
@@ -18,5 +18,5 @@ def build_efficient_sam_vits():
     return build_efficient_sam(
         encoder_patch_embed_dim=384,
         encoder_num_heads=6,
-        checkpoint="/home/torgeir/Documents/isi/EfficientSAM/weights/efficient_sam_vits.pt",
+        checkpoint="weights/efficient_sam_vits.pt",
     ).eval()
