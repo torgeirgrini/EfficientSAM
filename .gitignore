@@ -3,3 +3,7 @@
 *.pyd
 __py
 **/__pycache__/
+figs/
+weights/efficient_sam_vits.pt
+weights/efficient_sam_vitt.pt
+weights/__MACOSX
