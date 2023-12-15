@@ -222,6 +222,7 @@ class EfficientSam(nn.Module):
 
     def preprocess(self, x: torch.Tensor) -> torch.Tensor:
         """Normalize pixel values and pad to a square input."""
+        x = x.float()
         if (
             x.shape[2] != self.image_encoder.img_size
             or x.shape[3] != self.image_encoder.img_size

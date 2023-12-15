@@ -1,0 +1,11 @@
+
+[all]
+matplotlib
+onnx
+onnxruntime
+
+[dev]
+black
+flake8
+isort
+mypy
